@@ -3,4 +3,28 @@ mixin custom-checkbox(opts)
     input(type=opts.inpts.type, name=opts.inpts.name, id=opts.inpts.name, checked=opts.inpts.checked)
     label(for=opts.inpts.name)!=opts.textLabel
 
+mixin select (opts, name, id)
+  select(name = name, id=id?id:name)&attributes(attributes)
+    - each opt in opts
+        option(value=opt.value)!=opt.value
+
+mixin custom-select(items)
+  .custom-select&attributes(attributes)
+    +select(items.opts, items.name, items.id)
+
+mixin custom-select-1(items)
+  .dropdown.custom-select
+    +select(items.opts, items.name, items.id)
+    span.customSelect
+      span.custom-select-text text
+      span.caret
+
+mixin input(type, name, id, value, attr)
+  - if(typeof(type) = 'undifined') type = "text"
+  input(type=type, name=name, id=id?id:name, value=value)&attributes(attributes)
+
+mixin frm(name, id, method)
+  - if(typeof(method) === 'undifined') method = 'post'
+  form(name=name, id=id?id:name, method=method)&attributes(attributes)
+
 
