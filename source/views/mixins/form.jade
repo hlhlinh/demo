@@ -1,0 +1,6 @@
+mixin custom-checkbox(opts)
+  .custom-checkbox&attributes(attributes)
+    input(type=opts.inpts.type, name=opts.inpts.name, id=opts.inpts.name, checked=opts.inpts.checked)
+    label(for=opts.inpts.name)!=opts.textLabel
+
+
