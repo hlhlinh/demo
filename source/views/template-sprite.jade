@@ -13,20 +13,20 @@ block container
     +custom-checkbox({
       inpts: {type: "checkbox", name: "checkbox-1"},
       textLabel: "Checkbox-1"
-      })
+      }).custom-checkbox
     +custom-checkbox({
       inpts: {type: "checkbox", name: "checkbox-2", checked: "checked"},
       textLabel: "Checkbox-2"
-      })
+      }).custom-checkbox
     h3 Customer-radio
     +custom-checkbox({
       inpts: {type: "radio", name: "radio-1"},
       textLabel: "radio-1"
-      })
+      }).custom-radio
     +custom-checkbox({
       inpts: {type: "radio", name: "radio-2", checked: "checked"},
       textLabel: "radio-2"
-      })
+      }).custom-radio
   h2 Custom select
   +custom-select({opts:[{value: 'item-1'}, {value: 'item-2'}], name:'item'})
   +custom-select-1({opts:[{value: 'item-1'}, {value: 'item-2'}], name:'item-normal'})
