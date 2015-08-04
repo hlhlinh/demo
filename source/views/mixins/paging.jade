@@ -1,0 +1,22 @@
+mixin pager(start, numPages, curr, base)
+  ul.pager&attributes(attributes)
+    - if(curr==1)
+      li.previous.disabled
+        a(href='#', title='Back') Back
+    - else
+      li.previous
+        a(href='#', title='Back') Back
+    - for(var i=start; i < start + numPages; i++) {
+      - if(i==curr)
+        li.active
+          span=i
+      - else
+        li
+          a(href='#{base}#{i}', title='#{i}') #{i}
+    - }
+    - if(curr==numPages)
+      li.next.disabled
+        a(href='#', title='Next') Next
+    - else
+      li.next
+        a(href='#', title='Next') Next
