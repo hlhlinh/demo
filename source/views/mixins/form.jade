@@ -1,23 +1,26 @@
 mixin custom-checkbox(opts)
   .custom-check&attributes(attributes)
-    input(type=opts.inpts.type, name=opts.inpts.name, id=opts.inpts.name, checked=opts.inpts.checked)
-    label(for=opts.inpts.name)!=opts.textLabel
+    input(type=opts.inpts.type, name=opts.inpts.name, id=opts.inpts.id, checked=opts.inpts.checked)
+    label(for=opts.inpts.id)!=opts.textLabel
 
 mixin select (opts, name, id)
   select(name = name, id=id?id:name)&attributes(attributes)
     - each opt in opts
         option(value=opt.value)!=opt.value
 
-mixin custom-select(items)
-  .custom-select&attributes(attributes)
-    +select(items.opts, items.name, items.id)
+//- mixin custom-select(items)
+//-   .custom-select&attributes(attributes)
+//-     +select(items.opts, items.name, items.id)
 
-mixin custom-select-1(items)
-  .dropdown.custom-select
-    +select(items.opts, items.name, items.id)
-    span.customSelect
-      span.custom-select-text text
-      span.caret
+mixin custom-select(items)
+  .custom-dropdown
+    .custom-select&attributes(attributes)
+      +select(items.opts, items.name, items.id)
+      span.custom-select-text select
+    ul.item-select
+      li.selected item-1
+      li item-2
+      li item-3
 
 mixin input(type, name, id, value, attr)
   - if(typeof(type) = 'undifined') type = "text"
