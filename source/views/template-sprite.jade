@@ -2,8 +2,31 @@ extends layouts/template
 
 block vars
   -title = 'Sprite'
+  -menuIndex = 0
 
 block container
+  h2 Navigation type 1
+  nav
+    +nav([{title: 'Home', href: 'index.html', clsLi: "active", itemsMenu: {
+      items: [
+        {title: 'Home-1', href: 'index.html', itemsMenu: {
+        items:[
+          {title: 'Home-1.1', href: 'index.html'},
+          {title: 'Home-1.2', href: 'index.html'}
+        ], clsSub: "level-2"
+        }},
+        {title: 'Home-2', href: 'index.html'},
+      ], clsSub: "level-1"
+      }},
+     {title: 'Layer', href: 'template-layer.html'},
+     {title: 'Sprite', href: 'template-sprite.html'},
+     {title: 'Style Guide', href: 'template-style-guide.html'},
+     {title: 'Sitemap', href: 'sitemap.html'}]).menu
+  h2 Navigation type 2
+  nav
+    +link("home", "#", "home")
+    +link("layer", "#", "layer")
+    +link("sprite", "#", "sprite")
   h2 breadcrumb
   +breadcrumb([{text:"item-1", href:"#"},{text: "item-2", href: "#"},{text: "item-3"}],0)
   +breadcrumb([{text:"item-1", href:"#"},{text: "item-2", href: "#"},{text: "item-3"}],1)
@@ -30,9 +53,11 @@ block container
   h2 Custom select
   +custom-select({opts:[{value: 'item-1'}, {value: 'item-2'}], name:'item'})
   +custom-select-1({opts:[{value: 'item-1'}, {value: 'item-2'}], name:'item-normal'})
-  h2 Text
-  h2 Button
-  h2 Form Elements
-  h2 Corner
-  h2 Background
-  h2 General
+  h2 light box
+  aside.popup
+    .popup-content
+      +link("close", "#", "x")
+      .header
+        h3 title
+      .footer
+        p this is footer
