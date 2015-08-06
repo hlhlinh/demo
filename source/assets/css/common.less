@@ -27,3 +27,40 @@
   }
 }
 //light-box
+.popup {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  .popup-content {
+    position: relative;
+    max-width: 450px;
+    min-width: 450px;
+    padding: 10px;
+    background-color: white;
+    overflow: hidden;
+    .icon-close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      .size(20px,20px);
+      border-radius: 5px;
+      background-color: gray;
+      color: white;
+      text-align: center;
+      line-height: 1.3;
+    }
+  }
+  .header {
+    .title {
+      text-transform: uppercase;
+      padding-right: 20px;
+      margin-bottom: 10px;
+    }
+    .desc {
+      p { 
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+    }
+  }
+}
